@@ -1,0 +1,12 @@
+# dependencies
+/backend/node_modules
+/backend/uploads
+/admin/node_modules
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
