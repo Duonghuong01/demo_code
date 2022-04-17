@@ -14,14 +14,16 @@ import { Routes } from "../../routes";
 import '../../scss/pagination.scss';
 export default () => {
     let history = useHistory();
-    let video = useSelector(state => state.video.data);
+    let video = useSelector(state => state.video.data); // lây dữ liệu video từ store
     let { addToast } = useToasts()
     let dispatch = useDispatch();
     const [activePage, setActivePage] = useState(1);
 
     useEffect(() => {
         dispatch(getVideoThunk(6 * (activePage - 1))) // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [activePage]);
+    }, [activePage]);   // vừa vào trang web sẽ thực thi hàm lấy video đầu tiên
+
+
 
     let deleteVideo = async (videoId) => {
         await dispatch(deleteVideoThunk(videoId));

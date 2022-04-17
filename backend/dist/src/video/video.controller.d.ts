@@ -1,4 +1,5 @@
 /// <reference types="multer" />
+/// <reference types="mongoose" />
 import { VideoService } from './video.service';
 export declare class VideoController {
     private videoService;

@@ -12,12 +12,13 @@ import { Routes } from "../../routes";
 
 export default () => {
     let history = useHistory();
-    let category = useSelector(state => state.category.data);
+    let category = useSelector(state => state.category.data); // lấy dữ liệu category đã lưu trữ
     let { addToast } = useToasts()
     let dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getCategoryThunk()) // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, []);  // vừa vào trang web thì thực thi hàm này.
 
     let deleteCategory = async (categoryId) => {
         await dispatch(deleteCategoryThunk(categoryId));

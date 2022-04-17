@@ -9,11 +9,14 @@ export class AttendanceUserService {
     @InjectModel(AttendanceUser.name) private attendanceUserModel: Model<AttendanceUserDocument>
   ) { }
 
+  async findAttendanceByUser(user) {
+    return this.attendanceUserModel.find({ user }).populate("attendance", "title startDate endDate", "Attendance")
+  }
 
   async attendanceUserStatus(attendanceUserDto, user) {
     let attendanceUser = await this.attendanceUserModel.findOne({ attendance: attendanceUserDto.attendance, user: user }).populate("attendance", "code", "Attendance");
     if (attendanceUser) {
-      if (attendanceUser.attendance.code == attendanceUserDto.code.trim()) {
+      if (attendanceUser.attendance.code == attendanceUserDto.code?.trim()) {
         attendanceUser.status = "Đã điểm danh";
         return attendanceUser.save();
       } else {

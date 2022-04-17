@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addAttendance, deleteAttendance, detailAttendance, editAttendance, getAttendance, statusByAdminAttendance } from '../services/attendance.service';
+import { addAttendance, deleteAttendance, detailAttendance, editAttendance, getAttendance, getAttendanceUser, statusByAdminAttendance, statusByUserAttendance } from '../services/attendance.service';
 
 const initialState = {
   data: null,
@@ -36,6 +36,17 @@ export const getAttendanceThunk = () => async (dispatch) => {
   //done
 }
 
+export const getAttendanceUserThunk = () => async (dispatch) => {
+  try {
+    const data = await getAttendanceUser();
+    return data;
+  } catch (err) {
+    dispatch(setError(err))
+  }
+  //done
+}
+
+
 export const addAttendanceThunk = (data) => async () => {
   try {
     let response = await addAttendance(data);
@@ -60,6 +71,17 @@ export const editAttendanceThunk = (attendanceId, data) => async () => {
 export const statusByAdminAttendanceThunk = (data) => async () => {
   try {
     let response = await statusByAdminAttendance(data);
+    return response;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+
+export const statusByUserAttendanceThunk = (data) => async () => {
+  try {
+    let response = await statusByUserAttendance(data);
     return response;
   } catch (error) {
     console.log(error)

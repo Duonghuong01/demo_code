@@ -29,7 +29,7 @@ export const getVideoThunk = (dto) => async (dispatch) => {
 
     try {
         const data = await getVideo(dto);
-        dispatch(setData(data))
+        dispatch(setData(data))  // set dữ liệu nhận được video lưu trữ trên store
     } catch (err) {
         dispatch(setError(err))
     }

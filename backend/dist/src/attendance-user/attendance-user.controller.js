@@ -23,6 +23,9 @@ let AttendanceUserController = class AttendanceUserController {
     async changeAttendanceUserStatus(body, req) {
         return this.attendanceUserService.attendanceUserStatus(body, req.user._doc._id);
     }
+    async findAttendanceByUser(req) {
+        return this.attendanceUserService.findAttendanceByUser(req.user._doc._id);
+    }
     async changeAttendanceUserStatusByAdmin(body) {
         return this.attendanceUserService.attendanceUserStatusByAdmin(body);
     }
@@ -36,6 +39,14 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], AttendanceUserController.prototype, "changeAttendanceUserStatus", null);
+__decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AttendanceUserController.prototype, "findAttendanceByUser", null);
 __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Post)('status-admin'),

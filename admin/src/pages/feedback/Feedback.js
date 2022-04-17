@@ -25,10 +25,6 @@ export default () => {
         addToast("Delete Success", { appearance: 'success', autoDismiss: 1000 })
     }
 
-
-
- 
-
     return (
         <>
             <Container>

@@ -1,4 +1,5 @@
 /// <reference types="multer" />
+/// <reference types="mongoose" />
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
 export declare class UserController {
