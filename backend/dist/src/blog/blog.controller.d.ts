@@ -1,5 +1,4 @@
 /// <reference types="multer" />
-/// <reference types="mongoose" />
 import { BlogService } from './blog.service';
 import { BlogDto } from './dto/blog-dto.dto';
 export declare class BlogController {

@@ -1,4 +1,3 @@
-/// <reference types="mongoose" />
 import { CategoryService } from './category.service';
 export declare class CategoryController {
     private categoryService;

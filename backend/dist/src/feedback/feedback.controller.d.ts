@@ -1,4 +1,3 @@
-/// <reference types="mongoose" />
 import { FeedbackService } from './feedback.service';
 export declare class FeedbackController {
     private feedbackService;

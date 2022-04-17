@@ -71,7 +71,7 @@ let UserService = class UserService {
             html: `<h1>Email xác nhận</h1>
                 <h2>Xin chào ${name}</h2>
                 <p>Cảm ơn bạn đã đăng ký. Vui lòng xác nhận tài khoản bằng cách nhấn vào đường link dưới đây</p>
-                <a href=http://localhost:3002/verify-email/${confirmationCode}>Link</a>
+                <a href=http://localhost:3001/verify-email/${confirmationCode}>Link</a>
                 </div>`,
         }).catch(err => console.log(err));
     }
@@ -135,7 +135,7 @@ let UserService = class UserService {
             html: `<h1>Xác nhận mật khẩu mới</h1>
                 <h2>Xin chào ${name}</h2>
                 <p>Vui lòng nhấn vào đường link dưới đây để tạo mật khẩu mới!</p>
-                <a href=http://localhost:3002/reset-password/${confirmationCode}>Link</a>
+                <a href=http://localhost:3001/reset-password/${confirmationCode}>Link</a>
                 </div>`,
         }).catch(err => console.log(err));
     }
