@@ -43,7 +43,7 @@ export class PaymentUserService {
     var tmnCode = "VV2XA67I";
     var secretKey = "TGFARZKFBTSJAQHNENLUFOLEVBLVKJOP";
     var vnpUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    var returnUrl = `http://localhost:3002/payment-infor?paymentUser=${paymentUser}`;
+    var returnUrl = `http://localhost:3001/payment-infor?paymentUser=${paymentUser}`;
 
     var ipAddr = req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||

@@ -17,7 +17,7 @@ import { PaymentUserModule } from './payment-user/payment-user.module';
 
 @Module({
   imports: [UserModule,
-    MongooseModule.forRoot('mongodb://localhost/minhhoang'),
+    MongooseModule.forRoot('mongodb://localhost/congngheweb'),
     AuthModule,
     BlogModule,
     CommentModule,
