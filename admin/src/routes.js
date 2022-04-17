@@ -62,11 +62,16 @@ export const Routes = {
     AttendanceAdd: { path: "/attendance/add" },
     AttendanceDetail: { path: "/attendance/detail" },
     AttendanceEdit: { path: "/attendance/edit" },
+    AttendanceUser: { path: "/attendance-user" },
+
 
     Payment: { path: "/payment" },
     PaymentAdd: { path: "/payment/add" },
     PaymentDetail: { path: "/payment/detail" },
     PaymentEdit: { path: "/payment/edit" },
+    PaymentUser: { path: "/payment-user" },
+    PaymentInfor: { path: "/payment-infor" },
+
 
 
 };

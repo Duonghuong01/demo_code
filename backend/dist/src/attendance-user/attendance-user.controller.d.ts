@@ -5,6 +5,9 @@ export declare class AttendanceUserController {
     changeAttendanceUserStatus(body: any, req: any): Promise<import("./schemas/attendance-user.schemas").AttendanceUser & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;
+    findAttendanceByUser(req: any): Promise<(import("./schemas/attendance-user.schemas").AttendanceUser & import("mongoose").Document<any, any, any> & {
+        _id: any;
+    })[]>;
     changeAttendanceUserStatusByAdmin(body: any): Promise<import("./schemas/attendance-user.schemas").AttendanceUser & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;

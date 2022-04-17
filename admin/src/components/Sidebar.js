@@ -78,20 +78,24 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <NavItem title="Bài viết" icon={faBook} link={Routes.Blog.path} />
               <NavItem title="Danh mục Video" icon={faStickyNote} link={Routes.Category.path} />
-              <NavItem title="Điểm danh" icon={faClock} link={Routes.Attendance.path} />
-              <NavItem title="Học phí" icon={faMoneyBill} link={Routes.Payment.path} />
+              {(user.roles === "admin" || user.roles === "superadmin") && <NavItem title="Điểm danh" icon={faClock} link={Routes.Attendance.path} />}
+
+              {(user.roles === "admin" || user.roles === "superadmin") && <NavItem title="Học phí" icon={faMoneyBill} link={Routes.Payment.path} />}
+
+              {(user.roles === "user") && <NavItem title="Điểm danh của tôi" icon={faClock} link={Routes.AttendanceUser.path} />}
+
+              {(user.roles === "user") && <NavItem title="Học phí của tôi" icon={faMoneyBill} link={Routes.PaymentUser.path} />}
 
               <NavItem title="Video" icon={faVideo} link={Routes.Video.path} />
 
-              {(user.roles === "admin" || user.roles === "superadmin") && <NavItem title="Role User" icon={faUserAstronaut} link={Routes.User.path} />}
+              {(user.roles === "superadmin") && <NavItem title="Role User" icon={faUserAstronaut} link={Routes.User.path} />}
               {<NavItem title="Feedback" icon={faUserAstronaut} link={Routes.Feedback.path} />}
 
               <Dropdown.Divider className="my-3 border-indigo" />
-           
+
             </Nav>
           </div>
         </SimpleBar>

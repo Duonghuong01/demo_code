@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addPayment, deletePayment, detailPayment, editPayment, getPayment, statusByAdminPayment } from '../services/payment.service';
+import { addPayment, addPaymentByUser, deletePayment, detailPayment, editPayment, getPayment, getPaymentUser, paymentUserStatus, statusByAdminPayment } from '../services/payment.service';
 
 const initialState = {
   data: null,
@@ -36,9 +36,42 @@ export const getPaymentThunk = () => async (dispatch) => {
   //done
 }
 
+
+export const getPaymentUserThunk = () => async (dispatch) => {
+  try {
+    const data = await getPaymentUser();
+    return data;
+  } catch (err) {
+    dispatch(setError(err))
+  }
+  //done
+}
+
+
 export const addPaymentThunk = (data) => async () => {
   try {
     let response = await addPayment(data);
+    return response;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export const addPaymentByUserThunk = (data) => async () => {
+  try {
+    let response = await addPaymentByUser(data);
+    return response;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+
+export const paymentUserStatusThunk = (data) => async () => {
+  try {
+    let response = await paymentUserStatus(data);
     return response;
   } catch (error) {
     console.log(error)

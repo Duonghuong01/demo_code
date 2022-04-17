@@ -5,8 +5,27 @@ export const getPayment = async () => {
     return response
 };
 
+
+export const getPaymentUser = async () => {
+    let response = await privateGetApi(`/payment-user`)
+    return response
+};
+
+
+export const paymentUserStatus = async (dto) => {
+    let response = await privateGetApi(`/payment-user/payment/${dto}`)
+    return response
+};
+
+
 export const addPayment = async (data) => {
     let response = await privatePostApi('/payment/create', data)
+    return response
+};
+
+
+export const addPaymentByUser = async (data) => {
+    let response = await privatePostApi('/payment-user/create', data)
     return response
 };
 
@@ -20,8 +39,8 @@ export const detailPayment = async (data) => {
 }
 
 export const statusByAdminPayment = async (data) => {
-  let response = await privatePostApi(`/payment-user/status-admin`, data)
-  return response
+    let response = await privatePostApi(`/payment-user/status-admin`, data)
+    return response
 };
 export const deletePayment = async (data) => {
     let response = await privateDeleteApi(`/payment/delete/${data}`)

@@ -1,3 +1,4 @@
+/// <reference types="mongoose" />
 import { AttendanceService } from './attendance.service';
 export declare class AttendanceController {
     private attendanceService;

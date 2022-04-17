@@ -29,7 +29,7 @@ export const getCategoryThunk = () => async (dispatch) => {
 
     try {
         const data = await getCategory();
-        dispatch(setData(data))
+        dispatch(setData(data))  // sau khi nhận dữ liệu từ service thì nó sẽ lưu trữ dữ liệu nhận về lên store
         return data;
     } catch (err) {
         dispatch(setError(err))
@@ -37,7 +37,7 @@ export const getCategoryThunk = () => async (dispatch) => {
     //done
 }
 
-export const addCategoryThunk = (data) => async (dispatch) => {
+export const addCategoryThunk = (data) => async () => {
     try {
         let response = await addCategory(data);
         getCategoryThunk();

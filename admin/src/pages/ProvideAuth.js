@@ -52,6 +52,9 @@ import Payment from "./payment/Payment";
 import PaymentAdd from "./payment/PaymentAdd";
 import PaymentEdit from "./payment/PaymentEdit";
 import PaymentDetail from "./payment/PaymentDetail";
+import AttendanceUser from "./attendance/AttendanceUser";
+import PaymentUser from "./payment/PaymentUser";
+import PaymentInfor from "./payment/PaymentInfor";
 
 
 const RouteWithSidebar = ({ component: Component, ...rest }) => {
@@ -146,11 +149,14 @@ export default function ProvideAuth() {
             <RouteWithSidebar exact path={Routes.AttendanceAdd.path} component={AttendanceAdd} />
             <RouteWithSidebar exact path={Routes.AttendanceEdit.path} component={AttendanceEdit} />
             <RouteWithSidebar exact path={Routes.AttendanceDetail.path} component={AttendanceDetail} />
+            <RouteWithSidebar exact path={Routes.AttendanceUser.path} component={AttendanceUser} />
 
             <RouteWithSidebar exact path={Routes.Payment.path} component={Payment} />
             <RouteWithSidebar exact path={Routes.PaymentAdd.path} component={PaymentAdd} />
             <RouteWithSidebar exact path={Routes.PaymentEdit.path} component={PaymentEdit} />
             <RouteWithSidebar exact path={Routes.PaymentDetail.path} component={PaymentDetail} />
+            <RouteWithSidebar exact path={Routes.PaymentUser.path} component={PaymentUser} />
+            <RouteWithSidebar exact path={Routes.PaymentInfor.path} component={PaymentInfor} />
 
 
             <Redirect from="/" to="/" />

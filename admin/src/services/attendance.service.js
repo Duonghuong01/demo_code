@@ -20,9 +20,23 @@ export const detailAttendance = async (data) => {
 }
 
 export const statusByAdminAttendance = async (data) => {
-  let response = await privatePostApi(`/attendance-user/status-admin`, data)
-  return response
+    let response = await privatePostApi(`/attendance-user/status-admin`, data)
+    return response
 };
+
+
+export const statusByUserAttendance = async (data) => {
+    let response = await privatePostApi(`/attendance-user/status`, data)
+    return response
+};
+
+
+export const getAttendanceUser = async () => {
+    let response = await privateGetApi(`/attendance-user`)
+    return response
+};
+
+
 export const deleteAttendance = async (data) => {
     let response = await privateDeleteApi(`/attendance/delete/${data}`)
     return response

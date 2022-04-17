@@ -21,10 +21,14 @@ let AttendanceUserService = class AttendanceUserService {
     constructor(attendanceUserModel) {
         this.attendanceUserModel = attendanceUserModel;
     }
+    async findAttendanceByUser(user) {
+        return this.attendanceUserModel.find({ user }).populate("attendance", "title startDate endDate", "Attendance");
+    }
     async attendanceUserStatus(attendanceUserDto, user) {
+        var _a;
         let attendanceUser = await this.attendanceUserModel.findOne({ attendance: attendanceUserDto.attendance, user: user }).populate("attendance", "code", "Attendance");
         if (attendanceUser) {
-            if (attendanceUser.attendance.code == attendanceUserDto.code.trim()) {
+            if (attendanceUser.attendance.code == ((_a = attendanceUserDto.code) === null || _a === void 0 ? void 0 : _a.trim())) {
                 attendanceUser.status = "Đã điểm danh";
                 return attendanceUser.save();
             }

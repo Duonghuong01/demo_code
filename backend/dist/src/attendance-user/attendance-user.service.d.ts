@@ -3,6 +3,9 @@ import { AttendanceUser, AttendanceUserDocument } from './schemas/attendance-use
 export declare class AttendanceUserService {
     private attendanceUserModel;
     constructor(attendanceUserModel: Model<AttendanceUserDocument>);
+    findAttendanceByUser(user: any): Promise<(AttendanceUser & import("mongoose").Document<any, any, any> & {
+        _id: any;
+    })[]>;
     attendanceUserStatus(attendanceUserDto: any, user: any): Promise<AttendanceUser & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;

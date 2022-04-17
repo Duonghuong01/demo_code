@@ -20,6 +20,12 @@ let PaymentUserController = class PaymentUserController {
     constructor(paymentUserService) {
         this.paymentUserService = paymentUserService;
     }
+    async findPaymentByUser(req) {
+        return this.paymentUserService.findPaymentByUser(req.user._doc._id);
+    }
+    async paymentUserStatusByUser(paymentUserId) {
+        return this.paymentUserService.paymentUserStatus(paymentUserId);
+    }
     async getPayment(body, req, res) {
         return this.paymentUserService.createPayment(body, req, res);
     }
@@ -27,6 +33,22 @@ let PaymentUserController = class PaymentUserController {
         return this.paymentUserService.paymentUserStatusByAdmin(body);
     }
 };
+__decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], PaymentUserController.prototype, "findPaymentByUser", null);
+__decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, common_1.Get)('payment/:paymentUserId'),
+    __param(0, (0, common_1.Param)('paymentUserId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], PaymentUserController.prototype, "paymentUserStatusByUser", null);
 __decorate([
     (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),
